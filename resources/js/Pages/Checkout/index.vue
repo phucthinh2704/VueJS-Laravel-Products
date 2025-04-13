@@ -131,6 +131,8 @@ export default {
 
                 if (response.data.payment_url) {
                     window.location.href = response.data.payment_url;
+                    localStorage.removeItem("cart"); // Clear cart from localStorage after payment initiation
+                    this.cart = []; // Clear cart state
                 } else {
                     alert("Failed to generate payment URL");
                 }
